@@ -622,11 +622,11 @@ const _memoriaRespaldo = {};
 let _usandoRespaldo = false;
 const storageLocal = {
   get(key){
-    try{ const v = localStorage.getItem('soai:' + _archivoId + ':' + key); return v === null ? null : v; }
+    try{ const v = localStorage.getItem('MP CONSUMO:' + _archivoId + ':' + key); return v === null ? null : v; }
     catch(e){ _usandoRespaldo = true; return _memoriaRespaldo[key] !== undefined ? _memoriaRespaldo[key] : null; }
   },
   set(key, value){
-    try{ localStorage.setItem('soai:' + _archivoId + ':' + key, value); }
+    try{ localStorage.setItem('MP CONSUMO:' + _archivoId + ':' + key, value); }
     catch(e){ _usandoRespaldo = true; _memoriaRespaldo[key] = value; }
   }
 };
@@ -636,7 +636,7 @@ function numOk(x, def){ const n = Number(x); return Number.isFinite(n) ? n : def
 function configPorDefecto(){
   return {
     nombreTienda:'',
-    titulo:'Seguimiento de Venta y Bonos SOAI',
+    titulo:'MP CONSUMO Venta y Bonos',
     ivaPct: 19,
     vendedores:[
       {id:11190, nombre:'Luz'},
